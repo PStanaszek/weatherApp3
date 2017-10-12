@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GET Weather App</title>
+    <meta name="description" content="Weather app, find your location and check the weather">
+    <meta name="keywords" content="weather application, check weather, openweathermap">
+    <meta name="author" content="Piotr Stanaszek">
+
+    <title>WeatherApp</title>
+    <!--jQuery-->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <!--Bootstrap css-->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!--  Bootstrap js-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="css/style.css">
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Exo:400,500,700,800&amp;subset=latin-ext" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+
+
+
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="container center-block logo">
+
+
+                <span class="logo-left">get</span><span class="logo"><img class="img img-responsive" src="img/icons/png/016-bolt.png" alt="blizzard"></span><span class="logo-right">Weather</span>
+            </div>
+        </header>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 center-block">
+                    <form class="form-inline">
+                        <div class="form-group">
+                            <input type="text" class="searchInput" placeholder="Wpisz miasto">
+                            <button type="button" class="searchButton">Szukaj</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        <div class="container" id="weather-box">
+            <div class="row">
+                <div class="col-lg-12  center-block ">
+                    <div class="row">
+                        <!--current weather div-->
+                        <div class="col-lg-8  center-block  weather weather-container">
+
+                            <div class="row">
+                                <div class="col-lg-12  center-block ">
+                                    <!--current weather div-->
+                                    <div class="col-lg-12  center-block">
+
+
+                                        <div class="col-lg-6 col-xs-12 center-block">
+
+                                            <div class="row">
+
+                                                <div class="col-lg-12 col-xs-12 center-block">
+
+                                                    <div class="box" id="location">Miasto</div>
+                                                </div>
+
+
+                                                <div class="col-lg-6 col-xs-12 center-block">
+                                                    <div class="box">
+                                                        <span class="current-weather-img"><img class="img-responsive" src="img/icons/png/003-cloudy-4.png" alt="weather-icon"></span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-6 col-xs-12 temp">
+
+                                                    <div class="col-lg-12 temp">
+                                                        <div class="col-lg-12 temp-current">
+                                                            4 &#186 C
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-6 col-xs-12 weather-description">
+
+                                            <div class="row">
+                                                <!--Weather description-->
+                                                <div class="col-lg-12 col-xs-12 title">
+
+                                                    <div>Warunki pogodowe<span class="current-description values">Lekki deszcz </span> </div>
+
+                                                </div>
+
+
+                                                <div class="col-lg-12 col-xs-12 title">
+
+                                                    <div>Wiatr <span class="current-wind values">10km/h </span></div>
+
+                                                </div>
+
+
+                                                <div class="col-lg-12 col-xs-12 title">
+
+                                                    <div>Ciśnienie <span class="current-pressure values"> 1080hPa </span></div>
+
+                                                </div>
+
+
+                                                <div class="col-lg-6 col-xs-12 ">
+
+                                                </div>
+
+                                                <div class="col-lg-12 col-xs-12 title">
+
+                                                    <div>Zachmurzenie <span class="current-cloudness values">
+                                   10%
+                                   </span></div>
+
+                                                </div>
+
+
+                                                <div class="col-lg-12 col-xs-12 title">
+
+                                                    <div>Wilgotność <span class="current-humidity  values">
+                                   10%
+                                   </span></div>
+
+                                                </div>
+
+                                                <!--Weather description-->
+
+                                            </div>
+                                        </div>
+
+
+
+
+
+                                        <div class="col-lg-12 col-xs-12 center-block hourly">
+
+                                            <div class="row">
+
+                                                <!--hourly Weather divs-->
+
+                                                <div class="col-lg-1 col-md-1 col-xs-2 center-block hours">
+                                                    <div class="row">
+                                                        <div class="col-lg-12 center-block hour">
+                                                            11:00
+                                                        </div>
+                                                        <div class="col-lg-12 center-block">
+                                                            <span class="hour-img"><img class="img-responsive" src="img/icons/png/003-cloudy-4.png" alt="weather"></span>
+                                                        </div>
+                                                        <div class="col-lg-12 center-block">
+                                                            <div class="box  hour-temp">5 &#186 C</div>
+                                                        </div>
+
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-1 col-md-1 col-xs-2 center-block hours">
+                                                    <div class="row">
+                                                        <div class="col-lg-12 center-block hour">
+                                                            11:00
+                                                        </div>
+                                                        <div class="col-lg-12 center-block">
+                                                            <span class="hour-img"><img class="img-responsive" src="img/icons/png/003-cloudy-4.png" alt="weather"></span>
+                                                        </div>
+                                                        <div class="col-lg-12 center-block">
+                                                            <div class="box  hour-temp">5 &#186 C</div>
+                                                        </div>
+
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-1 col-md-1 col-xs-2 center-block hours">
+                                                    <div class="row">
+                                                        <div class="col-lg-12 center-block hour">
+                                                            11:00
+                                                        </div>
+                                                        <div class="col-lg-12 center-block">
+                                                            <span class="hour-img"><img class="img-responsive" src="img/icons/png/003-cloudy-4.png" alt="weather"></span>
+                                                        </div>
+                                                        <div class="col-lg-12 center-block">
+                                                            <div class="box  hour-temp">5 &#186 C</div>
+                                                        </div>
+
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-1 col-md-1 col-xs-2 center-block hours">
+                                                    <div class="row">
+                                                        <div class="col-lg-12 center-block hour">
+                                                            11:00
+                                                        </div>
+                                                        <div class="col-lg-12 center-block">
+                                                            <span class="hour-img"><img class="img-responsive" src="img/icons/png/003-cloudy-4.png" alt="weather"></span>
+                                                        </div>
+                                                        <div class="col-lg-12 center-block">
+                                                            <div class="box  hour-temp">5 &#186 C</div>
+                                                        </div>
+
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-1 col-md-1 col-xs-2 center-block hours">
+                                                    <div class="row">
+                                                        <div class="col-lg-12 center-block hour">
+                                                            11:00
+                                                        </div>
+                                                        <div class="col-lg-12 center-block">
+                                                            <span class="hour-img"><img class="img-responsive" src="img/icons/png/003-cloudy-4.png" alt="weather"></span>
+                                                        </div>
+                                                        <div class="col-lg-12 center-block">
+                                                            <div class="box  hour-temp">5 &#186 C</div>
+                                                        </div>
+
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-1 col-md-1 col-xs-2 center-block hours">
+                                                    <div class="row">
+                                                        <div class="col-lg-12 center-block hour">
+                                                            11:00
+                                                        </div>
+                                                        <div class="col-lg-12 center-block">
+                                                            <span class="hour-img"><img class="img-responsive" src="img/icons/png/003-cloudy-4.png" alt="weather"></span>
+                                                        </div>
+                                                        <div class="col-lg-12 center-block">
+                                                            <div class="box  hour-temp">5 &#186 C</div>
+                                                        </div>
+
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-1 col-md-1 col-xs-2 center-block hours">
+                                                    <div class="row">
+                                                        <div class="col-lg-12 center-block hour">
+                                                            11:00
+                                                        </div>
+                                                        <div class="col-lg-12 center-block">
+                                                            <span class="hour-img"><img class="img-responsive" src="img/icons/png/003-cloudy-4.png" alt="weather"></span>
+                                                        </div>
+                                                        <div class="col-lg-12 center-block">
+                                                            <div class="box  hour-temp">5 &#186 C</div>
+                                                        </div>
+
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-1 col-md-1 col-xs-2 center-block hours">
+                                                    <div class="row">
+                                                        <div class="col-lg-12 center-block hour">
+                                                            11:00
+                                                        </div>
+                                                        <div class="col-lg-12 center-block">
+                                                            <span class="hour-img"><img class="img-responsive" src="img/icons/png/003-cloudy-4.png" alt="weather"></span>
+                                                        </div>
+                                                        <div class="col-lg-12 center-block">
+                                                            <div class="box  hour-temp">5 &#186 C</div>
+                                                        </div>
+
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-1 col-md-1 col-xs-2 center-block hours">
+                                                    <div class="row">
+                                                        <div class="col-lg-12 center-block hour">
+                                                            11:00
+                                                        </div>
+                                                        <div class="col-lg-12 center-block">
+                                                            <span class="hour-img"><img class="img-responsive" src="img/icons/png/003-cloudy-4.png" alt="weather"></span>
+                                                        </div>
+                                                        <div class="col-lg-12 center-block">
+                                                            <div class="box  hour-temp">5 &#186 C</div>
+                                                        </div>
+
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-1 col-md-1 col-xs-2 center-block hours">
+                                                    <div class="row">
+                                                        <div class="col-lg-12 center-block hour">
+                                                            11:00
+                                                        </div>
+                                                        <div class="col-lg-12 center-block">
+                                                            <span class="hour-img"><img class="img-responsive" src="img/icons/png/003-cloudy-4.png" alt="weather"></span>
+                                                        </div>
+                                                        <div class="col-lg-12 center-block">
+                                                            <div class="box  hour-temp">5 &#186 C</div>
+                                                        </div>
+
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-1 col-md-1 col-xs-2 center-block hours">
+                                                    <div class="row">
+                                                        <div class="col-lg-12 center-block hour">
+                                                            11:00
+                                                        </div>
+                                                        <div class="col-lg-12 center-block">
+                                                            <span class="hour-img"><img class="img-responsive" src="img/icons/png/003-cloudy-4.png" alt="weather"></span>
+                                                        </div>
+                                                        <div class="col-lg-12 center-block">
+                                                            <div class="box  hour-temp">5 &#186 C</div>
+                                                        </div>
+
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-1 col-md-1 col-xs-2 center-block hours">
+                                                    <div class="row">
+                                                        <div class="col-lg-12 center-block hour">
+                                                            11:00
+                                                        </div>
+                                                        <div class="col-lg-12 center-block">
+                                                            <span class="hour-img"><img class="img-responsive" src="img/icons/png/003-cloudy-4.png" alt="weather"></span>
+                                                        </div>
+                                                        <div class="col-lg-12 center-block">
+                                                            <div class="box  hour-temp">5 &#186 C</div>
+                                                        </div>
+
+
+                                                    </div>
+                                                </div>
+
+
+
+
+
+
+
+
+
+                                            </div>
+
+
+                                            <!--hourly Weather divs-->
+
+
+                                        </div>
+
+
+                                    </div>
+
+
+
+
+
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                        <div class="col-lg-4 map-container">
+
+
+                            <div id="map">
+
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                    <!--forecast weather divs-->
+                    <div class="col-lg-12 daily-container">
+                        <div class="row no-gutter">
+                            <!--first-->
+                            <div class="col-lg-2 col-md-2 col-xs-4  center-block">
+                                <div class="col-lg-12  center-block weather weather-forecast">
+
+
+                                    <div class="col-lg-12 center-block date-box">
+                                        <span class="box day">Dzień</span> <span class="box date">Data</span>
+                                        <!--<span class="box date">Data</span>-->
+                                    </div>
+                                    <div class="col-lg-12 center-block date-box">
+                                        <div class="forecast-description"></div>
+                                    </div>
+
+                                    <div class="col-lg-12">
+                                        <div class="box icon">
+                                            <span class="forecast-img"><img class="daily-icon img-responsive" src="img/icons/png/003-cloudy-4.png" alt="weather"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 temp">
+                                        <div class="box  temp-day"><img src="img/icons/png/050-sun.png" alt="">4 &#186 C</div>
+                                    </div>
+                                    <div class="col-lg-6 temp">
+                                        <div class="box  temp-night"><img src="img/icons/png/028-moon-2.png" alt="">5 &#186 C</div>
+                                    </div>
+
+
+
+
+
+
+                                </div>
+                            </div>
+
+                            <div class="col-lg-2 col-md-2 col-xs-4  center-block">
+                                <div class="col-lg-12  center-block weather weather-forecast">
+
+
+                                    <div class="col-lg-12 center-block date-box">
+                                        <span class="box day">Dzień</span> <span class="box date">Data</span>
+                                        <!--<span class="box date">Data</span>-->
+                                    </div>
+                                    <div class="col-lg-12 center-block date-box">
+                                        <div class="forecast-description"></div>
+                                    </div>
+
+                                    <div class="col-lg-12">
+                                        <div class="box icon">
+                                            <span class="forecast-img"><img class="daily-icon img-responsive" src="img/icons/png/003-cloudy-4.png" alt="weather"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 temp">
+                                        <div class="box  temp-day"><img src="img/icons/png/050-sun.png" alt="">4 &#186 C</div>
+                                    </div>
+                                    <div class="col-lg-6 temp">
+                                        <div class="box  temp-night"><img src="img/icons/png/028-moon-2.png" alt="">5 &#186 C</div>
+                                    </div>
+
+
+
+
+
+
+                                </div>
+                            </div>
+
+                            <div class="col-lg-2 col-md-2 col-xs-4  center-block">
+                                <div class="col-lg-12  center-block weather weather-forecast">
+
+
+                                    <div class="col-lg-12 center-block date-box">
+                                        <span class="box day">Dzień</span> <span class="box date">Data</span>
+                                        <!--<span class="box date">Data</span>-->
+                                    </div>
+                                    <div class="col-lg-12 center-block date-box">
+                                        <div class="forecast-description"></div>
+                                    </div>
+
+                                    <div class="col-lg-12">
+                                        <div class="box icon">
+                                            <span class="forecast-img"><img class="daily-icon img-responsive" src="img/icons/png/003-cloudy-4.png" alt="weather"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 temp">
+                                        <div class="box  temp-day"><img src="img/icons/png/050-sun.png" alt="">4 &#186 C</div>
+                                    </div>
+                                    <div class="col-lg-6 temp">
+                                        <div class="box  temp-night"><img src="img/icons/png/028-moon-2.png" alt="">5 &#186 C</div>
+                                    </div>
+
+
+
+
+
+
+                                </div>
+                            </div>
+
+                            <div class="col-lg-2 col-md-2 col-xs-4  center-block">
+                                <div class="col-lg-12  center-block weather weather-forecast">
+
+
+                                    <div class="col-lg-12 center-block date-box">
+                                        <span class="box day">Dzień</span> <span class="box date">Data</span>
+                                        <!--<span class="box date">Data</span>-->
+                                    </div>
+                                    <div class="col-lg-12 center-block date-box">
+                                        <div class="forecast-description"></div>
+                                    </div>
+
+                                    <div class="col-lg-12">
+                                        <div class="box icon">
+                                            <span class="forecast-img"><img class="daily-icon img-responsive" src="img/icons/png/003-cloudy-4.png" alt="weather"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 temp">
+                                        <div class="box  temp-day"><img src="img/icons/png/050-sun.png" alt="">4 &#186 C</div>
+                                    </div>
+                                    <div class="col-lg-6 temp">
+                                        <div class="box  temp-night"><img src="img/icons/png/028-moon-2.png" alt="">5 &#186 C</div>
+                                    </div>
+
+
+
+
+
+
+                                </div>
+                            </div>
+
+                            <div class="col-lg-2 col-md-2 col-xs-4  center-block">
+                                <div class="col-lg-12  center-block weather weather-forecast">
+
+
+                                    <div class="col-lg-12 center-block date-box">
+                                        <span class="box day">Dzień</span> <span class="box date">Data</span>
+                                        <!--<span class="box date">Data</span>-->
+                                    </div>
+                                    <div class="col-lg-12 center-block date-box">
+                                        <div class="forecast-description"></div>
+                                    </div>
+
+                                    <div class="col-lg-12">
+                                        <div class="box icon">
+                                            <span class="forecast-img"><img class="daily-icon img-responsive" src="img/icons/png/003-cloudy-4.png" alt="weather"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 temp">
+                                        <div class="box  temp-day"><img src="img/icons/png/050-sun.png" alt="">4 &#186 C</div>
+                                    </div>
+                                    <div class="col-lg-6 temp">
+                                        <div class="box  temp-night"><img src="img/icons/png/028-moon-2.png" alt="">5 &#186 C</div>
+                                    </div>
+
+
+
+
+
+
+                                </div>
+                            </div>
+
+                            <div class="col-lg-2 col-md-2 col-xs-4  center-block">
+                                <div class="col-lg-12  center-block weather weather-forecast">
+
+
+                                    <div class="col-lg-12 center-block date-box">
+                                        <span class="box day">Dzień</span> <span class="box date">Data</span>
+                                        <!--<span class="box date">Data</span>-->
+                                    </div>
+                                    <div class="col-lg-12 center-block date-box">
+                                        <div class="forecast-description"></div>
+                                    </div>
+
+                                    <div class="col-lg-12">
+                                        <div class="box icon">
+                                            <span class="forecast-img"><img class="daily-icon img-responsive" src="img/icons/png/003-cloudy-4.png" alt="weather"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 temp">
+                                        <div class="box  temp-day"><img src="img/icons/png/050-sun.png" alt="">4 &#186 C</div>
+                                    </div>
+                                    <div class="col-lg-6 temp">
+                                        <div class="box  temp-night"><img src="img/icons/png/028-moon-2.png" alt="">5 &#186 C</div>
+                                    </div>
+
+
+
+
+
+
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+                    </div>
+
+
+                    <!--first-->
+
+                </div>
+
+
+
+                <!--forecast weather divs-->
+
+
+            </div>
+
+
+        </div>
+    </div>
+
+    <footer>
+        <div class="col-lg-12 footer">
+            <a href='https://openweathermap.org/' target="_blank"> Weather data from OpenWeatherMap.com</a>
+            <span class="author">Author: Piotr Stanaszek</span>
+
+            <a href='http://www.freepik.com/' target="_blank"> Icons by Freepik</a>
+        </div>
+
+    </footer>
+
+
+
+
+
+
+
+
+
+
+    <!--Bootstrap js-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!--Google maps API-->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHQcPyVjBbMmJ_H_msPFiLCUztYRu2RXo&callback=initMap">
+
+
+    </script>
+    <!-- Weather script-->
+    <script src="js/weather3.js"></script>
+</body>
+
+</html>
