@@ -1,3 +1,123 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+caption,
+tfoot,
+thead,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: middle;
+}
+
+
+$bp-small: 24em;
+$bp-sm: 46.8em;
+$bp-md: 50em;
+$bp-lg: 73em;
+
+@mixin xs {
+
+    @media only screen and (min-width: $bp-small) {
+        @content;
+    }
+}
+
+@mixin sm {
+
+    @media only screen and (min-width: $bp-sm) {
+        @content;
+    }
+}
+
+@mixin md {
+
+    @media only screen and (min-width: $bp-md) {
+        @content;
+    }
+}
+
+@mixin lg {
+
+    @media only screen and (min-width: $bp-lg) {
+        @content;
+    }
+}
+
+
+
 body {
     height: 100%;
     margin: 0px;
@@ -11,17 +131,34 @@ body {
     font-family: 'Exo', sans-serif;
 }
 
+.container {
+    min-width: 100%;
+    max-width: 100%;
+}
+
 .col-lg-12 {
     padding: 5px;
 }
 
 .logo {
     font-family: 'Righteous', cursive;
-    font-size: 70px;
+    font-size: 30px;
     letter-spacing: 5px;
     color: rgba(255, 255, 255, 0.9);
     text-shadow: 0px -3px 5px rgba(0, 0, 0, 0.6), 0px -6px 5px rgba(117, 117, 117, 0.5);
     vertical-align: middle;
+
+    @include xs {
+        font-size: 30px;
+    }
+
+    @include md {
+        font-size: 50px;
+    }
+
+    @include lg {
+        font-size: 70px;
+    }
 }
 
 .logo-left,
@@ -42,8 +179,24 @@ header {
         display: inline-block;
     }
     img {
-        max-height: 60px;
+        max-height: 30px;
+        height: 60vh;
         padding: -2px;
+
+        @include xs {
+            max-height: 30px;
+            height: 60vh;
+        }
+
+        @include md {
+            max-height: 40px;
+            height: 40vh;
+        }
+
+        @include lg {
+            max-height: 70px;
+            height: 60vh;
+        }
     }
 }
 
@@ -52,7 +205,7 @@ header {
 }
 
 input {
-    width: 40%;
+    width: 70%;
     border-radius: 5px;
     border: 1px solid rgba(0, 0, 0, 0);
     -webkit-box-shadow: 0px 0px 19px 5px rgba(117, 117, 117, 1);
@@ -61,22 +214,40 @@ input {
     margin: 30px;
     display: inline-block;
     padding: 8px 12px;
-    font-size: 18px;
+    font-size: 12px;
     font-weight: 400;
     line-height: 1.42857143;
     text-align: center;
     white-space: nowrap;
+
+    @include xs {
+        font-size: 12px;
+        max-width: 60%;
+
+    }
+
+    @include md {
+        font-size: 16px;
+        width: 50%;
+        max-width: 70%;
+    }
+
+    @include lg {
+        font-size: 18px;
+        width: 40%;
+        max-width: 50%;
+    }
 }
 
-/*.form-control:focus{
+.form-control:focus {
     -webkit-box-shadow: 0px 0px 19px 5px rgba(236, 218, 0, 1);
     -moz-box-shadow: 0px 0px 19px 5pxrgba(236, 218, 0, 1);
     box-shadow: 0px 0px 19px 5px rgba(236, 218, 0, 1);
-    border: 1px solid rgba(0,0,0,0);
-}*/
+    border: 1px solid rgba(0, 0, 0, 0);
+}
 
 button {
-    width: 10%;
+    width: 30%;
     border-radius: 5px;
     border: 1px solid rgba(0, 0, 0, 0);
     -webkit-box-shadow: 0px 0px 19px 5px rgba(117, 117, 117, 1);
@@ -91,7 +262,7 @@ button {
     background: linear-gradient(to right, rgba(255, 175, 75, 1) 0%, rgba(255, 146, 10, 1) 100%);
     display: inline-block;
     padding: 8px 12px;
-    font-size: 18px;
+    font-size: 12px;
     color: rgba(76, 76, 76, 1);
     letter-spacing: 1px;
     font-weight: 700;
@@ -99,11 +270,25 @@ button {
     text-align: center;
     white-space: nowrap;
     box-sizing: content-box;
+    @include xs {
+        font-size: 12px;
+        max-width: 30%;
+
+    }
+
+    @include md {
+        font-size: 16px;
+        width: 50%;
+        max-width: 20%;
+    }
+
+    @include lg {
+        font-size: 18px;
+        width: 40%;
+        max-width: 10%;
+    }
 }
 
-.weather-img img {
-    max-height: 4vw;
-}
 
 .weather {
     background: rgba(31, 31, 31, 0.8) no-repeat center center fixed;
@@ -114,23 +299,92 @@ button {
     font-weight: 500;
 }
 
-#current-temp {
-    font-size: 2vw;
-}
-
 .date-box {
-    font-size: 1.1vw;
+    font-size: 10px;
+
+    @include xs {
+        font-size: 10px;
+    }
+
+    @include sm {
+        font-size: 12px;
+    }
+
+    @include md {
+        font-size: 16px;
+    }
+
+    @include lg {
+        font-size: 18px;
+    }
 }
 
 /*current weather divs style*/
 
+.descript-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+
+}
+
+.main-temp-and-icon {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+
+}
+
+.current-icon {
+    width: 40%;
+    @include xs {
+        width: 40%;
+    }
+    @include sm {
+        width: 40%;
+    }
+
+    @include md {
+        width: 30%;
+    }
+
+    @include lg {
+        width: 40%;
+    }
+}
+
 .weather-description div {
-    font-size: 18px;
-    margin: 0px -15px 2px -15px;
+    font-size: 12px;
+    margin: 0px 0px 2px 0px;
+    @include xs {
+        font-size: 12px;
+        text-align: center;
+    }
+
+    @include sm {
+        font-size: 12px;
+        text-align: center;
+        margin: 0px 0px 2px 0px;
+    }
+
+    @include md {
+        font-size: 15px;
+        margin: 0px -15px 2px 0px;
+    }
+
+    @include lg {
+        font-size: 18px;
+        margin: 0px -15px 2px -15px;
+    }
 }
 
 .title {
     text-align: left;
+    border-bottom: 0.4px solid rgba(255, 255, 255, 0.6);
 }
 
 .values {
@@ -139,8 +393,27 @@ button {
 }
 
 #location {
-    text-align: left;
-    font-size: 40px;
+    width: 100%;
+    text-align: center;
+    font-size: 28px;
+    @include xs {
+        font-size: 28px;
+        text-align: center;
+    }
+    @include sm {
+        font-size: 28px;
+        text-align: center;
+    }
+
+    @include md {
+        font-size: 34px;
+        text-align: left;
+    }
+
+    @include lg {
+        font-size: 40px;
+        text-align: left;
+    }
 }
 
 .current-weather-img {
@@ -157,25 +430,33 @@ button {
 }
 
 .temp-current {
-    font-size: 45px;
-    text-align: left;
+    font-size: 23px;
+    text-align: center;
     padding-top: 10%;
-    margin-left: -10%;
+    margin-left: 0;
+    @include xs {
+        font-size: 23px;
+        text-align: center;
+    }
+
+    @include sm {
+        font-size: 28px;
+        text-align: center;
+    }
+
+    @include md {
+        font-size: 34px;
+        text-align: center;
+        margin-left: 0%;
+    }
+
+    @include lg {
+        font-size: 40px;
+        text-align: left;
+        margin-left: -10%;
+    }
 }
 
-/*current weather divs style*/
-
-/*.temp:nth-of-type(odd){
-    background-color: white;
-    color: black;
-    
-}
-
-.temp:nth-of-type(even){
-    background-color: darkblue;
-    color: yellow;
-    
-}*/
 
 .map-container {
     margin: 0px;
@@ -194,8 +475,24 @@ button {
 /*Hourly weather divs style*/
 
 .hourly {
-    border-top: 1px solid white;
+    /*border-top: 0.5px solid rgba(255, 255, 255, 0.6);*/
     padding: 10px 5px 0px 5px;
+    @include xs {
+        font-size: 12px;
+    }
+
+    @include sm {
+        font-size: 16px;
+
+    }
+
+    @include md {
+        font-size: 18px;
+    }
+
+    @include lg {
+        font-size: 18px;
+    }
 }
 
 .hour-img img {
@@ -206,7 +503,34 @@ button {
 .hours {
     padding: 0px;
     margin: 0px;
+    font-size: 12px;
+    border-bottom: 0.2px solid rgba(255, 255, 255, 0.6);
+    border-right: 0.2px solid rgba(255, 255, 255, 0.6);
+    @include xs {
+        font-size: 12px;
+        border-bottom: 0.5px solid rgba(255, 255, 255, 0.6);
+    }
+
+    @include sm {
+        font-size: 16px;
+        border-bottom: 0.5px solid rgba(255, 255, 255, 0.6);
+
+    }
+
+    @include md {
+        font-size: 18px;
+        border-bottom: 0.5px solid rgba(255, 255, 255, 0.6);
+    }
+
+    @include lg {
+        font-size: 18px;
+        border-bottom: none;
+    }
 }
+
+
+
+
 
 .daily-container {
     padding: 0px;
@@ -221,33 +545,109 @@ button {
 }
 
 .daily-icon {
-    max-width: 50px;
+    max-width: 30px;
     margin: -10px auto -2px auto;
-}
 
-.temp-day {
-    font-size: 18px;
-    padding-right: 5px;
-    img {
-        max-width: 20px;
-        float: left;
-        vertical-align: middle;
+    @include xs {
+        max-width: 30px;
+    }
+
+    @include sm {
+        max-width: 40px;
+    }
+
+    @include md {
+        max-width: 45px;
+    }
+
+    @include lg {
+        max-width: 50px;
     }
 }
 
+.temp-day {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+
+    font-size: 12px;
+    img {
+        width: 20px;
+        vertical-align: middle;
+        padding-right: 3px;
+
+    }
+
+    @include xs {
+        font-size: 12px;
+    }
+
+    @include sm {
+        font-size: 14px;
+    }
+
+    @include md {
+        font-size: 18px;
+    }
+
+    @include lg {
+        font-size: 18px;
+    }
+
+}
+
 .temp-night {
-    font-size: 18px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    font-size: 12px;
     color: rgba(235, 235, 235, 0.8);
     img {
         max-width: 18px;
         float: left;
         vertical-align: middle;
+        padding-right: 6px;
+    }
+
+    @include xs {
+        font-size: 12px;
+    }
+
+    @include sm {
+        font-size: 14px;
+    }
+
+    @include md {
+        font-size: 18px;
+    }
+
+    @include lg {
+        font-size: 18px;
     }
 }
 
 .forecast-description {
     margin-top: -10px;
-    font-size: 14px;
+    font-size: 10px;
+    @include xs {
+        font-size: 10px;
+    }
+
+    @include sm {
+        font-size: 14px;
+    }
+
+    @include md {
+        font-size: 14px;
+    }
+
+    @include lg {
+        font-size: 16px;
+    }
 }
 
 .no-gutter [class*="col-"] {
@@ -260,6 +660,24 @@ button {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    font-size: 11px;
+
+    @include xs {
+        font-size: 11px;
+    }
+
+    @include sm {
+        font-size: 12px;
+
+    }
+
+    @include md {
+        font-size: 16px;
+    }
+
+    @include lg {
+        font-size: 16px;
+    }
     a {
         color: rgba(255, 255, 255, 0.7);
     }

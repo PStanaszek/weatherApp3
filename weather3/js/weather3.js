@@ -148,7 +148,7 @@ function findByInput() {
         }
     });
     $(document).ready(function () {
-        document.querySelector("input").value = "Sląsk";
+        document.querySelector("input").value = "Kraków";
         $(".searchButton").trigger("click");
         return false;
     });
@@ -158,7 +158,7 @@ function findByInput() {
 
 
 function currentByInput() {
-    $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=" + input + "&APPID=" + id + "&units=metric", function (json) {
+    $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=" + input + "&APPID=" + id + "&units=metric&lang=pl", function (json) {
 
         /*Name of current location*/
         cityName = json.name;
@@ -195,7 +195,7 @@ function currentByInput() {
 function hourlyByInput() {
 
 
-    $.getJSON("http://api.openweathermap.org/data/2.5/forecast?q=" + input + "&APPID=" + id + "&units=metric&cnt=12", function (json) {
+    $.getJSON("http://api.openweathermap.org/data/2.5/forecast?q=" + input + "&APPID=" + id + "&units=metric&cnt=12&lang=pl", function (json) {
 
         for (var i = 0; i < 12; i++) {
             /*set hour*/
