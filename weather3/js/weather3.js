@@ -1,12 +1,3 @@
-/* data link
-/searching by city name
-"http://api.openweathermap.org/data/2.5/weather?lat=49.422332&lon=20.0332132&APPID=c46a632da27f87f7efe0ff1745ef7149"
-"http://api.openweathermap.org/data/2.5/weather?q="+input+"&APPID="+id+""
-/searching by coords
-"http://api.openweathermap.org/data/2.5/weather?lat="+lat +"&lon="+long+"&APPID="+id+""*/
-
-/*google maps API key AIzaSyCRPpawKlCWrn_MMgvy6plcJFKq9HdZCWs*/
-
 
 var lat, long, latDisp, longDisp,
     weatherData, json,
